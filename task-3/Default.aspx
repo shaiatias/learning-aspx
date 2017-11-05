@@ -10,18 +10,25 @@
             width: 50px;
             height: 50px;
             border: 0;
+            transition: left 0.2s ease-in-out, top 0.2s ease-in-out;
         }
     </style>
 </head>
 <body>
+
     <form id="form1" runat="server">
-        <div>
-        </div>
     </form>
 
     <script>
 
+        var isAnimating = false;
+
         function onButtonClick(x, y) {
+
+            if (isAnimating) {
+                console.log("ignoring while animating");
+                return;
+            }
 
             let result = isNeighborEmpty(x, y);
 
@@ -86,20 +93,31 @@
 
         function replaceCells(fromx, fromy, tox, toy) {
 
+            isAnimating = true;
+
             let from = document.querySelectorAll(`[data-tag='${fromx},${fromy}']`)[0];
             let to = document.querySelectorAll(`[data-tag='${tox},${toy}']`)[0];
 
-            let temp = from.value,
-                tempColor = from.style.backgroundColor,
-                tempDisplay = from.style.display;
+            let fromTop =   from.style.top,
+                fromLeft =  from.style.left,
+                toTop =     to.style.top,
+                toLeft =    to.style.left;
 
-            from.value = to.value;
-            from.style.backgroundColor = to.style.backgroundColor;
-            from.style.display = to.style.display;
+            from.style.top = to.style.top;
+            from.style.left = to.style.left;
 
-            to.value = temp;
-            to.style.backgroundColor = tempColor;
-            to.style.display = tempDisplay;
+            to.style.top = fromTop;
+            to.style.left = fromLeft;
+
+
+            let tempExpected = from.getAttribute("data-expected"),
+                tempTag = from.getAttribute("data-tag");
+
+            from.setAttribute("data-expected", to.getAttribute("data-expected"));
+            from.setAttribute("data-tag", to.getAttribute("data-tag"));
+
+            to.setAttribute("data-expected", tempExpected);
+            to.setAttribute("data-tag", tempTag);
         }
 
         function didFinish() {
@@ -116,6 +134,10 @@
 
             return true;
         }
+
+        window.addEventListener('transitionend', e => {
+            isAnimating = false;
+        });
 
     </script>
 </body>
