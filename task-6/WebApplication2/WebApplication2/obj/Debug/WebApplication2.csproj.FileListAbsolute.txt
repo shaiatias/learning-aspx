@@ -1,0 +1,18 @@
+C:\Users\shai.experitest\Documents\Visual Studio 2017\task-6\WebApplication2\WebApplication2\bin\WebApplication2.dll.config
+C:\Users\shai.experitest\Documents\Visual Studio 2017\task-6\WebApplication2\WebApplication2\bin\WebApplication2.dll
+C:\Users\shai.experitest\Documents\Visual Studio 2017\task-6\WebApplication2\WebApplication2\bin\WebApplication2.pdb
+C:\Users\shai.experitest\Documents\Visual Studio 2017\task-6\WebApplication2\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\shai.experitest\Documents\Visual Studio 2017\task-6\WebApplication2\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\shai.experitest\Documents\Visual Studio 2017\task-6\WebApplication2\WebApplication2\obj\Debug\WebApplication2.csprojResolveAssemblyReference.cache
+C:\Users\shai.experitest\Documents\Visual Studio 2017\task-6\WebApplication2\WebApplication2\obj\Debug\WebApplication2.csproj.CoreCompileInputs.cache
+C:\Users\shai.experitest\Documents\Visual Studio 2017\task-6\WebApplication2\WebApplication2\obj\Debug\WebApplication2.dll
+C:\Users\shai.experitest\Documents\Visual Studio 2017\task-6\WebApplication2\WebApplication2\obj\Debug\WebApplication2.pdb
+C:\Users\shai.experitest\Documents\source-tree\learning-aspx\task-6\WebApplication2\WebApplication2\bin\WebApplication2.dll.config
+C:\Users\shai.experitest\Documents\source-tree\learning-aspx\task-6\WebApplication2\WebApplication2\bin\WebApplication2.dll
+C:\Users\shai.experitest\Documents\source-tree\learning-aspx\task-6\WebApplication2\WebApplication2\bin\WebApplication2.pdb
+C:\Users\shai.experitest\Documents\source-tree\learning-aspx\task-6\WebApplication2\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\shai.experitest\Documents\source-tree\learning-aspx\task-6\WebApplication2\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\shai.experitest\Documents\source-tree\learning-aspx\task-6\WebApplication2\WebApplication2\obj\Debug\WebApplication2.csprojResolveAssemblyReference.cache
+C:\Users\shai.experitest\Documents\source-tree\learning-aspx\task-6\WebApplication2\WebApplication2\obj\Debug\WebApplication2.csproj.CoreCompileInputs.cache
+C:\Users\shai.experitest\Documents\source-tree\learning-aspx\task-6\WebApplication2\WebApplication2\obj\Debug\WebApplication2.dll
+C:\Users\shai.experitest\Documents\source-tree\learning-aspx\task-6\WebApplication2\WebApplication2\obj\Debug\WebApplication2.pdb
