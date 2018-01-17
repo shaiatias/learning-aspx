@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<style>
+    input {
+        width: 50px;
+        height: 50px;
+        border: 1px solid;
+        outline: 0;
+    }
+</style>
+
+
+<table>
+    <tbody>
+        @for (int i = 0; i < 4; i++)
+        {
+            @: <tr>
+            for (int j = 0; j < 4; j++)
+            {
+                @: <td>
+                    <input type="button" data-row="@(i)" data-column="@(j)" name="@(i * 4 + j)" onClick="onButtonClick(@i, @j, this)" />
+                    @: </td>
+            }
+            @: </tr>
+    }
+        </tbody>
+
+</table>
+
+
+<script>
+    async function shuffleCells() {
+        const response = await fetch("@Url.Action("shuffle", "Home")", { method: "POST" });
+        const cells = await response.json();
+        updateCells(cells);
+    }
+
+    function updateCells(cells) {
+        cells.forEach(cell => {
+            const { Row, Column, Color, Text } = cell;
+
+            let $cell = document.querySelector(`[data-row="${Row}"][data-column="${Column}"]`);
+
+            if ($cell) {
+                $cell.value = Text;
+                $cell.style.backgroundColor = Color;
+            }
+        });
+    }
+
+    function collectAllButtons() {
+
+        let cells = Array.from(document.querySelectorAll(`[type="button"]`));
+
+        return cells.map(cell => {
+            return {
+                text: cell.value.trim(),
+                row: cell.getAttribute("data-row"),
+                column: cell.getAttribute("data-column"),
+                color: cell.style.backgroundColor
+            };
+        });
+    }
+
+    async function onButtonClick(row, column, element) {
+        document.body.style.background = element.style.backgroundColor;
+
+        const payload = collectAllButtons();
+        const raw = JSON.stringify({ request: { cells: payload, row: parseInt(row), column: parseInt(column) } });
+
+        const response = await fetch("@Url.Action("onClick", "Home")", {
+            method: "POST",
+            body: raw,
+            headers: new Headers({
+                'Content-Type': 'application/json'
+            })
+        });
+
+        const body = await response.json();
+
+        updateCells(body.cells || []);
+
+        if (body.finish) {
+
+            let restart = confirm("game finished! yay!, click ok to start again.");
+
+            if (restart) {
+                location.reload();
+            }
+        }
+    }
+
+    (async function () {
+        await shuffleCells();
+    })();
+
+</script>
